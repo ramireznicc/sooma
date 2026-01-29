@@ -1,0 +1,116 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Ubuntu:wght@300;400;500;700&display=swap');
+
+@theme {
+  /* Primary: basado en #564d65 (púrpura) - color principal */
+  --color-primary-50: #f5f4f7;
+  --color-primary-100: #eae7ed;
+  --color-primary-200: #d0cbd9;
+  --color-primary-300: #a99cb8;
+  --color-primary-400: #7d6e91;
+  --color-primary-500: #564d65;
+  --color-primary-600: #4a4258;
+  --color-primary-700: #3d374a;
+  --color-primary-800: #302c3b;
+  --color-primary-900: #1a181b;
+
+  /* Secondary: neutros basados en #1a181b */
+  --color-secondary-50: #f7f7f8;
+  --color-secondary-100: #eeeeef;
+  --color-secondary-200: #d9d9db;
+  --color-secondary-300: #b8b8bc;
+  --color-secondary-400: #91919a;
+  --color-secondary-500: #6b6b76;
+  --color-secondary-600: #4d4d57;
+  --color-secondary-700: #363640;
+  --color-secondary-800: #232329;
+  --color-secondary-900: #1a181b;
+
+  /* Accent: teal y menta para destacar */
+  --color-accent-300: #2cda9d;
+  --color-accent-400: #4ab3a3;
+  --color-accent-500: #3e8989;
+  --color-accent-600: #357575;
+
+  --font-sans: 'Ubuntu', system-ui, sans-serif;
+  --font-logo: 'Abril Fatface', serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-secondary-800);
+    background-color: white;
+  }
+}
+
+@utility btn {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+@utility btn-primary {
+  background-color: var(--color-primary-600);
+  color: white;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  &:hover {
+    background-color: var(--color-primary-700);
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  }
+}
+
+@utility btn-secondary {
+  background-color: var(--color-secondary-100);
+  color: var(--color-secondary-700);
+  &:hover {
+    background-color: var(--color-secondary-200);
+  }
+}
+
+@utility btn-outline {
+  border-width: 2px;
+  border-color: var(--color-primary-600);
+  color: var(--color-primary-600);
+  &:hover {
+    background-color: var(--color-primary-600);
+    color: white;
+  }
+}
+
+@utility section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  @media (min-width: 768px) {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+@utility container-custom {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  @media (min-width: 640px) {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  @media (min-width: 1024px) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@utility border-gradient {
+  border-image: linear-gradient(to right, var(--color-accent-300) 50%, var(--color-primary-500) 50%) 1;
+}

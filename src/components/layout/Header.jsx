@@ -1,0 +1,70 @@
+import { useState } from 'react';
+import { Menu, X, Settings, Users, Mail, Globe } from 'lucide-react';
+
+const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const navLinks = [
+    { name: 'Servicios', href: '#servicios', icon: Settings },
+    { name: 'Nosotros', href: '#nosotros', icon: Users },
+    { name: 'Contacto', href: '#contacto', icon: Mail },
+    { name: 'Social', href: '#social', icon: Globe },
+  ];
+
+  return (
+    <>
+      {/* Desktop Header */}
+      <header className="hidden md:block fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-sm z-50">
+        <div className="container-custom">
+          <div className="flex items-center justify-center h-20">
+            <nav className="flex items-center gap-2">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="group flex items-center gap-2 px-4 py-2 rounded-full text-secondary-600 font-medium transition-all duration-300 hover:bg-primary-50 hover:text-primary-600"
+                >
+                  <link.icon className="w-4 h-4 transition-transform duration-300 group-hover:scale-110" />
+                  <span className="relative">
+                    {link.name}
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-400 transition-all duration-300 group-hover:w-full"></span>
+                  </span>
+                </a>
+              ))}
+            </nav>
+          </div>
+        </div>
+      </header>
+
+      {/* Mobile Menu Button (floating) */}
+      <button
+        className="md:hidden fixed top-4 right-4 z-50 p-3 bg-white/90 backdrop-blur-sm rounded-full shadow-lg text-secondary-700"
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+        aria-label="Toggle menu"
+      >
+        {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+      </button>
+
+      {/* Mobile Navigation Overlay */}
+      {isMenuOpen && (
+        <div className="md:hidden fixed inset-0 bg-white/95 backdrop-blur-sm z-40 flex items-center justify-center">
+          <nav className="flex flex-col gap-6 items-center">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="group flex items-center gap-3 text-2xl text-secondary-700 hover:text-primary-600 font-medium transition-all duration-300"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <link.icon className="w-6 h-6 text-accent-500 transition-transform duration-300 group-hover:scale-110" />
+                {link.name}
+              </a>
+            ))}
+          </nav>
+        </div>
+      )}
+    </>
+  );
+};
+
+export default Header;
