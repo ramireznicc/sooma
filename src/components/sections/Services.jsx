@@ -87,7 +87,7 @@ const plans = [
   },
   {
     name: 'Empresarial',
-    description: 'Para empresas grandes o con necesidades críticas',
+    description: 'Para empresas con alta demanda',
     users: '30+ usuarios',
     featured: false,
     features: [
@@ -110,10 +110,14 @@ const Services = () => {
     <section id="servicios" className="section bg-secondary-50">
       <div className="container-custom">
         <AnimateOnScroll animation="fade-up">
-          <SectionTitle
-            title="Nuestros Servicios"
-            subtitle="Soluciones completas para mantener tus equipos funcionando perfectamente"
-          />
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-2">
+              Nuestros Servicios
+            </h2>
+            <p className="text-sm md:text-base text-secondary-400 uppercase font-mono">
+              Soluciones completas para tus equipos
+            </p>
+          </div>
         </AnimateOnScroll>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-fr">
@@ -143,10 +147,14 @@ const Services = () => {
         {/* Abonos Mensuales */}
         <div className="mt-20">
           <AnimateOnScroll animation="fade-up">
-            <SectionTitle
-              title="Abonos Mensuales"
-              subtitle="Planes de soporte continuo para que tu empresa nunca se detenga"
-            />
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-2">
+                Abonos Mensuales
+              </h2>
+              <p className="text-sm md:text-base text-secondary-400 uppercase font-mono">
+                Plan de soporte continuo para tu empresa
+              </p>
+            </div>
           </AnimateOnScroll>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-4 max-w-6xl mx-auto mt-12 lg:pt-6">

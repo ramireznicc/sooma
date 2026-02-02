@@ -106,13 +106,17 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contacto" className="section bg-secondary-50">
+    <section id="contacto" className="section bg-white">
       <div className="container-custom">
         <AnimateOnScroll animation="fade-up">
-          <SectionTitle
-            title="Contactanos"
-            subtitle="¿Tenés un problema con tu equipo? Contanos y te ayudamos a resolverlo"
-          />
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-2">
+              Contactanos
+            </h2>
+            <p className="text-sm md:text-base text-secondary-400 uppercase font-mono">
+              Contanos tu problema y te ayudamos
+            </p>
+          </div>
         </AnimateOnScroll>
 
         <div className="max-w-3xl mx-auto">

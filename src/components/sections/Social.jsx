@@ -12,13 +12,17 @@ const socialLinks = [
 
 const Social = () => {
   return (
-    <section id="social" className="section bg-white">
+    <section id="social" className="section bg-secondary-50">
       <div className="container-custom">
         <AnimateOnScroll animation="fade-up">
-          <SectionTitle
-            title="Seguinos en nuestras redes sociales"
-            subtitle="Mantenete al día con consejos, novedades y contenido sobre tecnología"
-          />
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-2">
+              Seguinos en redes
+            </h2>
+            <p className="text-sm md:text-base text-secondary-400 uppercase font-mono">
+              Consejos, novedades y contenido tech
+            </p>
+          </div>
         </AnimateOnScroll>
 
         <div className="flex flex-wrap justify-center gap-6">
@@ -30,7 +34,7 @@ const Social = () => {
             >
               <a
                 href={social.href}
-                className="flex flex-col items-center gap-3 w-40 p-8 bg-secondary-50 rounded-2xl transition-all duration-300 hover:bg-accent-500 hover:text-white hover:scale-105 hover:shadow-xl"
+                className="flex flex-col items-center gap-3 w-40 p-8 bg-white rounded-2xl shadow-md border border-secondary-100 transition-all duration-300 hover:bg-accent-500 hover:text-white hover:scale-105 hover:shadow-xl hover:border-accent-500"
               >
                 <div className="w-16 h-16 flex items-center justify-center">
                   {social.isFontAwesome ? (

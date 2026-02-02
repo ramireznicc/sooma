@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Ubuntu:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Ubuntu+Mono:wght@400;700&family=Ubuntu:wght@300;400;500;700&display=swap');
 
 @theme {
   /* Primary: basado en #564d65 (púrpura) - color principal */
@@ -33,6 +33,7 @@
   --color-accent-600: #357575;
 
   --font-sans: 'Ubuntu', system-ui, sans-serif;
+  --font-mono: 'Ubuntu Mono', monospace;
   --font-logo: 'Abril Fatface', serif;
 }
 

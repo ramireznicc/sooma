@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Settings, Users, Mail, Globe } from 'lucide-react';
+import { Menu, X, Settings, Users, Mail, Globe, HelpCircle } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,6 +18,7 @@ const Header = () => {
   const navLinks = [
     { name: 'Servicios', href: '#servicios', icon: Settings },
     { name: 'Nosotros', href: '#nosotros', icon: Users },
+    { name: 'FAQ', href: '#faq', icon: HelpCircle },
     { name: 'Contacto', href: '#contacto', icon: Mail },
     { name: 'Social', href: '#social', icon: Globe },
   ];

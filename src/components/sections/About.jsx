@@ -29,10 +29,14 @@ const About = () => {
     <section id="nosotros" className="section bg-white">
       <div className="container-custom">
         <AnimateOnScroll animation="fade-up">
-          <SectionTitle
-            title="¿Por qué elegirnos?"
-            subtitle="Soluciones técnicas confiables con trato cercano y profesional"
-          />
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-2">
+              ¿Por qué elegirnos?
+            </h2>
+            <p className="text-sm md:text-base text-secondary-400 uppercase font-mono">
+              Soluciones técnicas confiables con trato cercano
+            </p>
+          </div>
         </AnimateOnScroll>
 
         <div className="max-w-xl mx-auto flex flex-col gap-4">
