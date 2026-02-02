@@ -1,5 +1,24 @@
-<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="100" cy="80" r="45" fill="#3e8989" opacity="0.85"/>
-  <circle cx="75" cy="130" r="45" fill="#2cda9d" opacity="0.85"/>
-  <circle cx="125" cy="130" r="45" fill="#564d65" opacity="0.85"/>
-</svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="79.999985mm"
+   height="80.000015mm"
+   viewBox="0 0 79.999985 80.000015"
+   version="1.1"
+   id="svg1"
+   xml:space="preserve"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+     id="defs1" /><g
+     id="layer1"
+     transform="translate(-65.000007,-108.5)"
+     style="stroke:none"><path
+       fill="#2cda9d"
+       d="m 65.000007,148.5 c 0,-22.09375 17.90625,-40 40.000003,-40 22.09374,0 39.99998,17.90625 39.99998,40 0,22.09375 -17.90624,40.00001 -39.99998,40.00001 -22.093753,0 -40.000003,-17.90626 -40.000003,-40.00001 z"
+       id="path1"
+       style="fill:#564d65;fill-opacity:1;stroke:none;stroke-width:4;stroke-dasharray:none;stroke-opacity:1" /><path
+       style="font-size:333.333px;line-height:0;font-family:STIX;-inkscape-font-specification:'STIX, Normal';text-align:center;text-anchor:middle;white-space:pre;fill:#2cda9d;fill-opacity:1;stroke:none;stroke-width:2.76428;stroke-linejoin:bevel;paint-order:stroke fill markers"
+       d="m 67.338318,157.71311 c 10.185919,-5.11166 17.862062,-8.67812 23.736479,-8.67812 8.874171,0 7.80233,6.6573 17.176333,6.6573 9.49907,0 20.56002,-5.11183 36.26537,-13.31449 l -1.85505,-3.09089 c -10.18588,5.11183 -17.86208,8.67817 -23.73634,8.67817 -8.74912,0 -7.80222,-6.65724 -17.17632,-6.65724 -9.499104,0 -20.559919,5.11198 -36.265297,13.31454 z"
+       id="text47"
+       aria-label="~" /></g></svg>

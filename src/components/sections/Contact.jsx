@@ -10,17 +10,42 @@ const Contact = () => {
     service: '',
     message: '',
   });
+  const [status, setStatus] = useState({ loading: false, success: false, error: false });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('¡Gracias por contactarnos! Te responderemos pronto.');
-    setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+    setStatus({ loading: true, success: false, error: false });
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: 'e94be4d8-ebd0-433c-908f-649fe9ab9f4b',
+          subject: `Nuevo contacto de ${formData.name} - ${formData.service}`,
+          from_name: 'Sooma Web',
+          ...formData,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setStatus({ loading: false, success: true, error: false });
+        setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+      } else {
+        setStatus({ loading: false, success: false, error: true });
+      }
+    } catch {
+      setStatus({ loading: false, success: false, error: true });
+    }
   };
 
   const contactInfo = [
@@ -136,7 +161,7 @@ const Contact = () => {
                 >
                   <option value="">Seleccionar servicio</option>
                   <option value="limpieza">Limpieza de Equipos</option>
-                  <option value="formateo">Formateo de Discos</option>
+                  <option value="software">Soluciones en Software</option>
                   <option value="instalacion">Instalación Limpia</option>
                   <option value="backup">Backup de Datos</option>
                   <option value="mantenimiento">Mantenimiento Preventivo</option>
@@ -163,9 +188,18 @@ const Contact = () => {
               />
             </div>
             <div className="text-center">
-              <Button type="submit" variant="primary" size="lg">
+              {status.success ? (
+                <p className="text-accent-500 font-medium py-3">
+                  ¡Gracias por contactarnos! Te responderemos pronto.
+                </p>
+              ) : status.error ? (
+                <p className="text-red-500 font-medium py-3 mb-3">
+                  Hubo un error al enviar. Por favor intentá de nuevo.
+                </p>
+              ) : null}
+              <Button type="submit" variant="primary" size="lg" disabled={status.loading}>
                 <Send className="w-5 h-5" />
-                Enviar Mensaje
+                {status.loading ? 'Enviando...' : 'Enviar Mensaje'}
               </Button>
             </div>
           </form>

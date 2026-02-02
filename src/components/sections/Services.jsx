@@ -1,6 +1,6 @@
 import {
   Trash2,
-  HardDrive,
+  Code,
   Download,
   Database,
   Settings,
@@ -17,9 +17,9 @@ const services = [
     description: 'Limpieza profunda de hardware y software. Eliminamos archivos temporales, malware y optimizamos el rendimiento.',
   },
   {
-    icon: HardDrive,
-    title: 'Formateo de Discos',
-    description: 'Formateo profesional de discos duros y SSDs. Preparamos tus unidades para una instalación limpia.',
+    icon: Code,
+    title: 'Soluciones en Software',
+    description: 'Desarrollo de software a medida para cubrir las necesidades específicas de tu empresa o negocio.',
   },
   {
     icon: Download,
