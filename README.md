@@ -1,16 +1,112 @@
-# React + Vite
+# Sooma
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Landing page para **Sooma**, empresa de soporte técnico y servicios informáticos en Rosario, Argentina.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React 19** - Biblioteca de UI
+- **Vite** - Build tool y dev server
+- **Tailwind CSS v4** - Framework de estilos
+- **Lucide React** - Iconos
+- **Font Awesome** - Iconos de redes sociales
+- **Web3Forms** - Manejo de formulario de contacto
 
-## React Compiler
+## Características
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Diseño responsive (mobile-first)
+- Animaciones de scroll suaves
+- Formulario de contacto integrado con Web3Forms
+- Botón flotante de WhatsApp con animación
+- Sección de FAQ con acordeón interactivo
+- Planes de abono mensual con CTAs directos
+- Navegación con scroll suave
 
-## Expanding the ESLint configuration
+## Estructura del Proyecto
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```
+src/
+├── assets/
+│   └── images/          # Logos e imágenes
+├── components/
+│   ├── common/          # Componentes reutilizables
+│   │   ├── AnimateOnScroll.jsx
+│   │   ├── Button.jsx
+│   │   ├── Card.jsx
+│   │   ├── SectionDivider.jsx
+│   │   ├── SectionTitle.jsx
+│   │   ├── Toast.jsx
+│   │   └── WhatsAppButton.jsx
+│   ├── layout/          # Header, Footer, Layout
+│   └── sections/        # Secciones de la landing
+│       ├── Hero.jsx
+│       ├── Services.jsx
+│       ├── About.jsx
+│       ├── FAQ.jsx
+│       ├── Contact.jsx
+│       └── Social.jsx
+├── hooks/               # Custom hooks
+│   └── useScrollAnimation.js
+├── pages/               # Páginas
+│   └── Home.jsx
+├── App.jsx
+├── main.jsx
+└── index.css            # Estilos globales y tema
+```
+
+## Instalación
+
+```bash
+# Clonar el repositorio
+git clone https://github.com/ramireznicc/sooma.git
+
+# Entrar al directorio
+cd sooma
+
+# Instalar dependencias
+npm install
+
+# Iniciar servidor de desarrollo
+npm run dev
+```
+
+## Scripts
+
+| Comando | Descripción |
+|---------|-------------|
+| `npm run dev` | Inicia el servidor de desarrollo |
+| `npm run build` | Genera build de producción |
+| `npm run preview` | Preview del build de producción |
+| `npm run lint` | Ejecuta ESLint |
+
+## Paleta de Colores
+
+| Color | Hex | Uso |
+|-------|-----|-----|
+| Primary | `#564d65` | Color principal (púrpura) |
+| Accent | `#2cda9d` | Color de acento (verde menta) |
+| Secondary | `#1a181b` | Textos y fondos oscuros |
+
+## Fuentes
+
+- **Ubuntu** - Fuente principal
+- **Ubuntu Mono** - Subtítulos de secciones
+- **Abril Fatface** - Logo
+
+## Deploy
+
+El proyecto está preparado para deploy en cualquier servicio de hosting estático (Vercel, Netlify, GitHub Pages, etc.).
+
+```bash
+# Generar build
+npm run build
+
+# Los archivos estarán en /dist
+```
+
+## Licencia
+
+Proyecto privado - Todos los derechos reservados.
+
+---
+
+Desarrollado con React + Vite
