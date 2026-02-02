@@ -1,3 +1,4 @@
+export { default as AnimateOnScroll } from './AnimateOnScroll';
 export { default as Button } from './Button';
 export { default as Card } from './Card';
 export { default as Logo } from './Logo';

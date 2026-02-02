@@ -5,7 +5,7 @@ const Button = ({
   className = '',
   ...props
 }) => {
-  const baseStyles = 'btn inline-flex items-center justify-center gap-2';
+  const baseStyles = 'btn inline-flex items-center justify-center gap-2 cursor-pointer transition-all duration-200 hover:brightness-110 active:brightness-95';
 
   const variants = {
     primary: 'btn-primary',

@@ -49,7 +49,7 @@ const Header = () => {
 
       {/* Mobile Menu Button (floating) */}
       <button
-        className="md:hidden fixed top-4 right-4 z-50 p-3 bg-white/90 backdrop-blur-sm rounded-full shadow-lg text-secondary-700"
+        className="md:hidden fixed top-5 right-5 z-50 p-2.5 bg-white/90 backdrop-blur-sm rounded-full shadow-lg text-secondary-700"
         onClick={() => setIsMenuOpen(!isMenuOpen)}
         aria-label="Toggle menu"
       >

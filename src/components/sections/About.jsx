@@ -1,5 +1,5 @@
 import { ShieldCheck, Wrench, Home, UserCheck } from 'lucide-react';
-import { SectionTitle } from '../common';
+import { SectionTitle, AnimateOnScroll } from '../common';
 
 const items = [
   {
@@ -28,25 +28,30 @@ const About = () => {
   return (
     <section id="nosotros" className="section bg-white">
       <div className="container-custom">
-        <SectionTitle
-          title="¿Por qué elegirnos?"
-          subtitle="Soluciones técnicas confiables con trato cercano y profesional"
-        />
+        <AnimateOnScroll animation="fade-up">
+          <SectionTitle
+            title="¿Por qué elegirnos?"
+            subtitle="Soluciones técnicas confiables con trato cercano y profesional"
+          />
+        </AnimateOnScroll>
 
         <div className="max-w-xl mx-auto flex flex-col gap-4">
           {items.map((item, index) => (
-            <div
+            <AnimateOnScroll
               key={index}
-              className="flex gap-5 items-center bg-white rounded-2xl p-5 shadow-lg border border-secondary-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 min-h-[120px]"
+              animation={index % 2 === 0 ? 'fade-left' : 'fade-right'}
+              delay={index * 100}
             >
-              <div className="flex-shrink-0 p-4 bg-primary-500 rounded-xl">
-                <item.icon className="w-8 h-8 text-accent-300" />
+              <div className="group flex gap-5 items-center bg-white rounded-2xl p-5 shadow-lg border border-secondary-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 min-h-[120px] select-none">
+                <div className="flex-shrink-0 p-4 bg-primary-500 rounded-xl group-hover:bg-accent-300 group-hover:scale-110 transition-all duration-300">
+                  <item.icon className="w-8 h-8 text-accent-300 group-hover:text-white transition-colors duration-300" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-secondary-900 mb-1">{item.title}</h3>
+                  <p className="text-secondary-600 text-sm">{item.text}</p>
+                </div>
               </div>
-              <div>
-                <h3 className="text-lg font-semibold text-secondary-900 mb-1">{item.title}</h3>
-                <p className="text-secondary-600 text-sm">{item.text}</p>
-              </div>
-            </div>
+            </AnimateOnScroll>
           ))}
         </div>
       </div>
