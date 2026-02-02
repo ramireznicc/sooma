@@ -1,8 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X, Settings, Users, Mail, Globe } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
 
   const navLinks = [
     { name: 'Servicios', href: '#servicios', icon: Settings },
@@ -46,23 +57,28 @@ const Header = () => {
       </button>
 
       {/* Mobile Navigation Overlay */}
-      {isMenuOpen && (
-        <div className="md:hidden fixed inset-0 bg-white/95 backdrop-blur-sm z-40 flex items-center justify-center">
-          <nav className="flex flex-col gap-6 items-center">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="group flex items-center gap-3 text-2xl text-secondary-700 hover:text-primary-600 font-medium transition-all duration-300"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <link.icon className="w-6 h-6 text-accent-500 transition-transform duration-300 group-hover:scale-110" />
-                {link.name}
-              </a>
-            ))}
-          </nav>
-        </div>
-      )}
+      <div
+        className={`md:hidden fixed inset-0 bg-white/95 backdrop-blur-sm z-40 flex items-center justify-center transition-all duration-300 ${
+          isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+        }`}
+      >
+        <nav className="flex flex-col gap-6 items-center">
+          {navLinks.map((link, index) => (
+            <a
+              key={link.name}
+              href={link.href}
+              className={`group flex items-center gap-3 text-2xl text-secondary-700 hover:text-primary-600 font-medium transition-all duration-300 ${
+                isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
+              style={{ transitionDelay: isMenuOpen ? `${index * 50}ms` : '0ms' }}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <link.icon className="w-6 h-6 text-accent-500 transition-transform duration-300 group-hover:scale-110" />
+              {link.name}
+            </a>
+          ))}
+        </nav>
+      </div>
     </>
   );
 };

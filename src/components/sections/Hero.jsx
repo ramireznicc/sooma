@@ -21,8 +21,8 @@ const Hero = () => {
         />
       </div>
 
-      <div className="container-custom relative z-10 w-full">
-        <div className="py-12 md:py-20 lg:py-24">
+      <div className="container-custom relative z-10 w-full px-4">
+        <div className="py-12 md:py-20 lg:py-24 flex flex-col items-center">
           {/* Logo Grande */}
           <div className="flex flex-col items-center mb-14">
             <img
@@ -33,11 +33,11 @@ const Hero = () => {
           </div>
 
           {/* Tagline + Descripción */}
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <p className="text-xl md:text-2xl lg:text-3xl text-secondary-200 mb-4 tracking-wide font-medium">
-              Soporte<span className="mx-3 text-accent-300">·</span>Mantenimiento<span className="mx-3 text-accent-300">·</span>Soluciones
+          <div className="max-w-3xl mx-auto text-center mb-12 px-4">
+            <p className="text-lg md:text-2xl lg:text-3xl text-secondary-200 mb-4 tracking-wide font-medium">
+              Soporte<span className="mx-2 md:mx-3 text-accent-300">·</span>Mantenimiento<span className="mx-2 md:mx-3 text-accent-300">·</span>Soluciones
             </p>
-            <div className="w-80 md:w-96 lg:w-[30rem] h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mx-auto mb-4"></div>
+            <div className="w-full max-w-80 md:max-w-96 lg:max-w-[30rem] h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mx-auto mb-4"></div>
             <p className="text-base md:text-lg text-secondary-300 mb-1">Tecnología que funciona.</p>
             <p className="text-base md:text-lg text-secondary-300">Soporte técnico profesional cuando lo necesitás.</p>
           </div>

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Send, Mail, MapPin, MessageCircle } from 'lucide-react';
-import { SectionTitle, Button } from '../common';
+import { SectionTitle, Button, Toast } from '../common';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -10,16 +10,42 @@ const Contact = () => {
     service: '',
     message: '',
   });
-  const [status, setStatus] = useState({ loading: false, success: false, error: false });
+  const [loading, setLoading] = useState(false);
+  const [toast, setToast] = useState({ show: false, type: 'success', message: '' });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const validateEmail = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus({ loading: true, success: false, error: false });
+
+    if (!formData.name.trim()) {
+      setToast({ show: true, type: 'error', message: 'Por favor, ingresá tu nombre.' });
+      return;
+    }
+
+    if (!formData.email.trim() || !validateEmail(formData.email)) {
+      setToast({ show: true, type: 'error', message: 'Por favor, ingresá un email válido.' });
+      return;
+    }
+
+    if (!formData.service) {
+      setToast({ show: true, type: 'error', message: 'Por favor, seleccioná un servicio.' });
+      return;
+    }
+
+    if (!formData.message.trim()) {
+      setToast({ show: true, type: 'error', message: 'Por favor, escribí un mensaje.' });
+      return;
+    }
+
+    setLoading(true);
 
     try {
       const response = await fetch('https://api.web3forms.com/submit', {
@@ -38,13 +64,15 @@ const Contact = () => {
       const result = await response.json();
 
       if (result.success) {
-        setStatus({ loading: false, success: true, error: false });
+        setToast({ show: true, type: 'success', message: '¡Mensaje enviado!\nTe responderemos pronto :)' });
         setFormData({ name: '', email: '', phone: '', service: '', message: '' });
       } else {
-        setStatus({ loading: false, success: false, error: true });
+        setToast({ show: true, type: 'error', message: 'Error al enviar. Por favor, intentá de nuevo.' });
       }
     } catch {
-      setStatus({ loading: false, success: false, error: true });
+      setToast({ show: true, type: 'error', message: 'Error al enviar. Por favor, intentá de nuevo.' });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -113,7 +141,6 @@ const Contact = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  required
                   className="w-full px-4 py-3 border border-secondary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all"
                   placeholder="Tu nombre"
                 />
@@ -128,7 +155,6 @@ const Contact = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  required
                   className="w-full px-4 py-3 border border-secondary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all"
                   placeholder="tu@email.com"
                 />
@@ -156,7 +182,6 @@ const Contact = () => {
                   name="service"
                   value={formData.service}
                   onChange={handleChange}
-                  required
                   className="w-full px-4 py-3 border border-secondary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all"
                 >
                   <option value="">Seleccionar servicio</option>
@@ -181,30 +206,27 @@ const Contact = () => {
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                required
                 rows={4}
                 className="w-full px-4 py-3 border border-secondary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all resize-none"
                 placeholder="Describí tu problema o consulta..."
               />
             </div>
             <div className="text-center">
-              {status.success ? (
-                <p className="text-accent-500 font-medium py-3">
-                  ¡Gracias por contactarnos! Te responderemos pronto.
-                </p>
-              ) : status.error ? (
-                <p className="text-red-500 font-medium py-3 mb-3">
-                  Hubo un error al enviar. Por favor intentá de nuevo.
-                </p>
-              ) : null}
-              <Button type="submit" variant="primary" size="lg" disabled={status.loading}>
+              <Button type="submit" variant="primary" size="lg" disabled={loading}>
                 <Send className="w-5 h-5" />
-                {status.loading ? 'Enviando...' : 'Enviar Mensaje'}
+                {loading ? 'Enviando...' : 'Enviar Mensaje'}
               </Button>
             </div>
           </form>
         </div>
       </div>
+
+      <Toast
+        isVisible={toast.show}
+        type={toast.type}
+        message={toast.message}
+        onClose={() => setToast({ ...toast, show: false })}
+      />
     </section>
   );
 };
