@@ -30,7 +30,7 @@ const Toast = ({ message, type = 'success', isVisible, onClose, duration = 4000 
   const Icon = style.icon;
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 animate-slide-up">
+    <div className="fixed top-4 left-4 right-4 md:top-24 md:left-auto md:right-6 z-50 animate-slide-down">
       <div className={`${style.bg} ${style.border} border rounded-xl shadow-2xl px-5 py-4 flex items-center gap-3 max-w-sm`}>
         <Icon className={`w-5 h-5 ${style.iconColor} flex-shrink-0`} />
         <p className="text-white text-sm font-medium whitespace-pre-line">{message}</p>
