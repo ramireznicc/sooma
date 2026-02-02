@@ -1,4 +1,4 @@
-import { Mail, MessageCircle, MapPin } from 'lucide-react';
+import { Mail, MapPin } from 'lucide-react';
 import { Logo } from '../common';
 
 const Footer = () => {
@@ -20,10 +20,6 @@ const Footer = () => {
             <a href="mailto:sooma.works@gmail.com" className="flex items-center gap-2 hover:text-accent-300 transition-colors">
               <Mail className="w-4 h-4 text-accent-300" />
               <span>sooma.works@gmail.com</span>
-            </a>
-            <a href="https://wa.me/543417218169" className="flex items-center gap-2 hover:text-accent-300 transition-colors">
-              <MessageCircle className="w-4 h-4 text-accent-300" />
-              <span>+54 341 721-8169</span>
             </a>
             <span className="flex items-center gap-2">
               <MapPin className="w-4 h-4 text-accent-300" />

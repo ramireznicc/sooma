@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Send, Mail, MapPin, MessageCircle } from 'lucide-react';
+import { Send, Mail, MapPin } from 'lucide-react';
 import { SectionTitle, Button, Toast } from '../common';
 
 const Contact = () => {
@@ -84,12 +84,6 @@ const Contact = () => {
       href: 'mailto:sooma.works@gmail.com',
     },
     {
-      icon: MessageCircle,
-      title: 'WhatsApp',
-      value: '+54 341 721-8169',
-      href: 'https://wa.me/543417218169',
-    },
-    {
       icon: MapPin,
       title: 'Ubicación',
       value: 'Rosario, Santa Fe',
@@ -107,7 +101,7 @@ const Contact = () => {
 
         <div className="max-w-3xl mx-auto">
           {/* Contact Info */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
             {contactInfo.map((item, index) => (
               <a
                 key={index}
