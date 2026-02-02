@@ -114,7 +114,7 @@ const Contact = () => {
               Contactanos
             </h2>
             <p className="text-sm md:text-base text-secondary-400 uppercase font-mono">
-              Contanos tu problema y te ayudamos
+              Tu consulta, nuestra prioridad
             </p>
           </div>
         </AnimateOnScroll>

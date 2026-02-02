@@ -5,9 +5,9 @@ import { SectionTitle, AnimateOnScroll } from '../common';
 
 const socialLinks = [
   { name: 'Instagram', icon: Instagram, href: 'https://instagram.com/sooma.works' },
-  { name: 'Facebook', icon: Facebook, href: '#' },
-  { name: 'LinkedIn', icon: Linkedin, href: '#' },
-  { name: 'TikTok', icon: null, isFontAwesome: true, href: '#' },
+  { name: 'Facebook', icon: Facebook, href: 'https://www.facebook.com/sooma.works' },
+  { name: 'LinkedIn', icon: Linkedin, href: '#', hidden: true },
+  { name: 'TikTok', icon: null, isFontAwesome: true, href: '#', hidden: true },
 ];
 
 const Social = () => {
@@ -26,7 +26,7 @@ const Social = () => {
         </AnimateOnScroll>
 
         <div className="flex flex-wrap justify-center gap-6">
-          {socialLinks.map((social, index) => (
+          {socialLinks.filter(social => !social.hidden).map((social, index) => (
             <AnimateOnScroll
               key={index}
               animation="scale"

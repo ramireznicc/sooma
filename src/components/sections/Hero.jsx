@@ -28,12 +28,12 @@ const Hero = () => {
             <img
               src={logoLight}
               alt="Sooma"
-              className="h-24 md:h-32 lg:h-40 w-auto"
+              className="h-24 md:h-32 lg:h-40 w-auto animate-logo-glow"
             />
           </div>
 
           {/* Tagline + Descripción */}
-          <div className="max-w-3xl mx-auto text-center mb-12 px-4 animate-hero-fade-in-delay-1">
+          <div className="max-w-3xl mx-auto text-center mb-12 px-1 md:px-4 animate-hero-fade-in-delay-1">
             <p className="text-lg md:text-2xl lg:text-3xl text-secondary-200 mb-4 tracking-wide font-medium">
               Soporte<span className="mx-2 md:mx-3 text-accent-300">·</span>Mantenimiento<span className="mx-2 md:mx-3 text-accent-300">·</span>Soluciones
             </p>
