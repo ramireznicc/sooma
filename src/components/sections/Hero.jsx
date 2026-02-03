@@ -1,5 +1,5 @@
 import { ArrowRight } from 'lucide-react';
-import logoLight from '../../assets/images/logo-light.svg';
+import logoLight from '../../assets/images/logo-light-1.svg';
 
 const Hero = () => {
   return (
@@ -28,7 +28,7 @@ const Hero = () => {
             <img
               src={logoLight}
               alt="Sooma"
-              className="h-24 md:h-32 lg:h-40 w-auto animate-logo-glow"
+              className="h-24 md:h-32 lg:h-40 w-auto"
             />
           </div>
 

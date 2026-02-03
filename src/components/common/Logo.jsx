@@ -1,5 +1,5 @@
-import logoLight from '../../assets/images/logo-light.svg';
-import logoDark from '../../assets/images/logo-dark.svg';
+import logoLight from '../../assets/images/logo-light-1.svg';
+import logoDark from '../../assets/images/logo-dark-1.svg';
 
 const Logo = ({ className = '', size = 'md', variant = 'dark' }) => {
   const heights = {

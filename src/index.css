@@ -285,16 +285,16 @@
   }
 }
 
-/* Glow animation for logo */
+/* Breathing animation for logo */
 .animate-logo-glow {
-  animation: logo-glow 4s ease-in-out infinite;
+  animation: logo-breathe 6s ease-in-out infinite;
 }
 
-@keyframes logo-glow {
+@keyframes logo-breathe {
   0%, 100% {
-    filter: drop-shadow(0 0 0px transparent);
+    transform: scale(1);
   }
   50% {
-    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.2));
+    transform: scale(1.03);
   }
 }
