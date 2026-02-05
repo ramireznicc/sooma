@@ -23,13 +23,19 @@ const Hero = () => {
 
       <div className="container-custom relative z-10 w-full px-4">
         <div className="py-12 md:py-20 lg:py-24 flex flex-col items-center">
-          {/* Logo Grande */}
-          <div className="flex flex-col items-center mb-14 animate-hero-fade-in">
-            <img
-              src={logoLight}
-              alt="Sooma"
-              className="h-24 md:h-32 lg:h-40 w-auto"
-            />
+          {/* Logo Grande - Elegant Animation */}
+          <div className="flex flex-col items-center mb-14">
+            <div className="logo-elegant-container">
+              {/* Subtle glow behind */}
+              <div className="logo-elegant-glow" />
+
+              {/* Main logo */}
+              <img
+                src={logoLight}
+                alt="Sooma"
+                className="logo-elegant h-24 md:h-32 lg:h-40 w-auto"
+              />
+            </div>
           </div>
 
           {/* Tagline + Descripción */}

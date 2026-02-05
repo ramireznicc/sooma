@@ -298,3 +298,64 @@
     transform: scale(1.03);
   }
 }
+
+/* ===========================================
+   ELEGANT LOGO ANIMATION - SOOMA
+   =========================================== */
+
+.logo-elegant-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Main logo - elegant entrance */
+.logo-elegant {
+  opacity: 0;
+  animation: logo-elegant-entrance 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes logo-elegant-entrance {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+/* Subtle glow that fades in behind the logo */
+.logo-elegant-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 250%;
+  height: 300%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    ellipse 50% 40% at center,
+    var(--color-accent-300) 0%,
+    rgba(44, 218, 157, 0.3) 30%,
+    transparent 70%
+  );
+  opacity: 0;
+  filter: blur(60px);
+  animation: glow-fade-in 2s ease-out 0.5s forwards;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes glow-fade-in {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.6);
+  }
+  100% {
+    opacity: 0.2;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
